@@ -51,7 +51,7 @@ def evaluate_mask(state, player:str) -> float:
     """
     board = state.get_board()
 
-    tabuleiro = board.__str__()
+    board_str = board.__str__()
 
     player_white = 0
     player_black = 0
@@ -62,12 +62,12 @@ def evaluate_mask(state, player:str) -> float:
 
     for row in EVAL_TEMPLATE:
         for val_col in row:
-            if(tabuleiro[str_pos] == 'B'):
+            if(board_str[str_pos] == 'B'):
                 player_black += val_col
-            elif(tabuleiro[str_pos] == 'W'):
+            elif(board_str[str_pos] == 'W'):
                 player_white += val_col
             str_pos += 1
-            while((tabuleiro[str_pos] == line_feed) and line_feed_count < 7):
+            while((board_str[str_pos] == line_feed) and line_feed_count < 7):
                 str_pos += 1
                 line_feed_count += 1
                 
