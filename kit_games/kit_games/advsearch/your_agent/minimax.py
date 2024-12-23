@@ -28,11 +28,11 @@ def MAX(state, max_depth:int, isMax:bool, eval_func:callable, alpha:float, beta:
         v_new  = MIN(next_state, max_depth - 1, False, eval_func, alpha, beta)[0]
         if v_new > v:
             v = v_new
-            perfect_move = move
+            best_move = move
         if v >= beta:
             break
         alpha = max(alpha, v)
-    return v, perfect_move
+    return v, best_move
 
 def MIN(state, max_depth:int, isMax:bool, eval_func:callable, alpha:float, beta:float):
     if(max_depth == 0) or (state.is_terminal()):
@@ -45,8 +45,8 @@ def MIN(state, max_depth:int, isMax:bool, eval_func:callable, alpha:float, beta:
         v_new  = MAX(next_state, max_depth - 1, True, eval_func, alpha, beta)[0]
         if v_new < v:
             v = v_new
-            perfect_move = move
+            best_move = move
         if v <= alpha:
             break
         beta = min(beta, v)
-    return v, perfect_move
+    return v, best_move

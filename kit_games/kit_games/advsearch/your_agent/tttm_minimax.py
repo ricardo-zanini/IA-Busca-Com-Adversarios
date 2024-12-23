@@ -10,7 +10,6 @@ from .minimax import minimax_move
 # Nao esqueca de renomear 'your_agent' com o nome
 # do seu agente.
 
-
 def make_move(state: GameState) -> Tuple[int, int]:
     """
     Retorna uma jogada calculada pelo algoritmo minimax para o estado de jogo fornecido.
@@ -24,18 +23,18 @@ def make_move(state: GameState) -> Tuple[int, int]:
     # a sua implementacao da poda alpha-beta. Use profundidade ilimitada na sua entrega,
     # uma vez que o jogo tem profundidade maxima 9. 
     # Preencha a funcao utility com o valor de um estado terminal e passe-a como funcao de avaliação para seu minimax_move
-
-    return minimax_move(state, -1, utility) # --> Utility é usada como função eval
+    return minimax_move(state, -1, utility)
 
 def utility(state, player:str) -> float:
     """
     Retorna a utilidade de um estado (terminal) 
     """
+    #Substitua pelo seu código
     if (state.winner() == player):
-        v = +1
-    elif (state.winner() != player):
-        v = -1
-    elif (state.winner() == None):
-        v = 0
+        value = +1
+    if (state.winner() != player):
+        value = -1
+    if (state.winner() == None):
+        value = 0
         
-    return v
+    return value
